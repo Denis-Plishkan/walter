@@ -1,0 +1,39 @@
+<section class="hero">
+  <!-- Slider main container -->
+  <div class="swiper hero__swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="hero__page-one">
+          <div class="hero__container">
+            <div class="hero__slogan-wrapper">
+              <p class="hero__slogan">walter <span>your personal</span></p>
+              <p class="hero__slogan hero__slogan-bottom">House</p>
+            </div>
+            @@include('../../html/components/heroForm.html', {})
+          </div>
+          <img src="./images/main/page1.png" alt="flat" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hero__page-two">
+          <img src="./images/main/page2.png" alt="flat" />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hero__page-three">
+          <img src="./images/main/page3-left.png" alt="flat" />
+          <img src="./images/main/page3-center.png" alt="flat" />
+          <img src="./images/main/page3-right.png" alt="flat" />
+        </div>
+      </div>
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
