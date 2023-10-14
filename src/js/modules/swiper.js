@@ -5,10 +5,22 @@ Swiper.use([Navigation, Pagination, Autoplay, Scrollbar]);
 
 function heroSwiper() {
   let swiper = new Swiper(".hero__swiper", {
-    // spaceBetween: 24,
     direction: 'vertical',
-    // slidesPerview: 'auto',
-    loop: true,
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.hero__swiper-pagination-round',
+    },
+  });
+
+  const swiperRounds = document.querySelectorAll('.hero__swiper-pagination-round');
+  swiper.on('slideChange', () => {
+    swiperRounds.forEach((swiperRound, index) => {
+      if (index === swiper.realIndex) {
+        swiperRound.classList.add('active');
+      } else {
+        swiperRound.classList.remove('active');
+      }
+    });
   });
 }
 

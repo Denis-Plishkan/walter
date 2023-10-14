@@ -1,34 +1,66 @@
 <section class="hero">
+  <div class="hero__mobile">
+      <div class="hero__page">
+        <div class="hero__container">
+          <p class="hero__mobile-text">
+            turnkey apartment renovation
+          </p>
+          <div class="hero__slogan-wrapper">
+            <div class="hero__slogan-wrapper-text">
+              <p class="hero__slogan">walter <span>your personal</span></p>
+              <p class="hero__slogan hero__slogan-bottom">House</p>
+            </div>
+          </div>
+          @@include('../../html/components/heroForm.html', {})
+        </div>
+        <img src="./images/main/page1.png" alt="flat" />
+      </div>
+  </div>
   <!-- Slider main container -->
   <div class="swiper hero__swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
       <div class="swiper-slide">
-        <div class="hero__page-one">
+        <div class="hero__page">
           <div class="hero__container">
             <div class="hero__slogan-wrapper">
-              <p class="hero__slogan">walter <span>your personal</span></p>
-              <p class="hero__slogan hero__slogan-bottom">House</p>
+              <div class="hero__slogan-wrapper-text">
+                <p class="hero__slogan">walter <span>your personal</span></p>
+                <p class="hero__slogan hero__slogan-bottom">House</p>
+              </div>
+              <div class="hero__swiper-pagination-rounds">
+                <div class="hero__swiper-pagination-round active">
+                  <div class="hero__swiper-round"></div>
+                </div>
+              </div>
             </div>
+            
             @@include('../../html/components/heroForm.html', {})
           </div>
           <img src="./images/main/page1.png" alt="flat" />
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="hero__page-two">
-          <img src="./images/main/page2.png" alt="flat" />
+        <div class="hero__page">
+          <div class="hero__container">
+            <div class="hero__slogan-wrapper">
+              <div class="hero__slogan-wrapper-text">
+                <p class="hero__slogan">walter <span>your personal</span></p>
+                <p class="hero__slogan hero__slogan-bottom">House</p>
+              </div>
+              <div class="hero__swiper-pagination-rounds">
+                <div class="hero__swiper-pagination-round active">
+                  <div class="hero__swiper-round"></div>
+                </div>
+              </div>
+            </div>
+            
+            @@include('../../html/components/heroForm.html', {})
+          </div>
+          <img src="./images/main/page1.png" alt="flat" />
         </div>
       </div>
-      <div class="swiper-slide">
-        <div class="hero__page-three">
-          <img src="./images/main/page3-left.png" alt="flat" />
-          <img src="./images/main/page3-center.png" alt="flat" />
-          <img src="./images/main/page3-right.png" alt="flat" />
-        </div>
-      </div>
-      ...
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>

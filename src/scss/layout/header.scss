@@ -6,6 +6,12 @@
   position: fixed;
   width: 100%;
   z-index: 2;
+  @media(max-width: 768px) {
+    min-height: 98px;
+  }
+  @media(max-width: 340px) {
+    min-height: 70px;
+  }
 
   // .header__container
   &__container {
@@ -15,11 +21,19 @@
     width: 100%;
     padding: 0 10px 0 45px;
     position: relative;
+    @media(max-width: 768px) {
+      padding: 0 10px;
+    }
+    @media(max-width: 340px) {
+      padding: 0 16px 0 2px;
+    }
   }
 
   &__logo {
-    position: relative;
-    z-index: 6;
+    display: none;
+    @media(max-width: 768px) {
+      display: block;
+    }
   }
 
   &__wrapper {
@@ -31,6 +45,16 @@
     width: 100%;
     align-items: center;
     position: relative;
+    @media(max-width: 1780px) {
+      margin-left: 64px;
+    }
+    @media(max-width: 768px) {
+      margin-left: 0;
+      padding-right: 30px;
+    }
+    @media(max-width: 340px) {
+      padding-right: 14px;
+    }
 
     &::after {
       position: absolute;
@@ -41,12 +65,22 @@
       bottom: -40px;
       left: 0;
       z-index: 6;
+      @media(max-width: 340px) {
+        bottom: -18px;
+      }
     }
   }
 
   &__wrapper-left {
     display: flex;
     gap: 126px;
+    @media(max-width: 768px) {
+      gap: 43px;
+      align-items: center;
+    }
+    @media(max-width: 340px) {
+      gap: 18px;
+    }
   }
 
   &__button-wrapper {
@@ -67,6 +101,12 @@
 
   &__button-round {
     position: relative;
+
+    svg {
+      @media(max-width: 340px) {
+        height: 30px;
+      }
+    }
 
     &:hover {
       animation: shake 0.5s ease;
@@ -90,6 +130,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      @media(max-width: 340px) {
+        width: 45px;
+        height: 45px;
+      }
     }
 
     &::before {
@@ -103,6 +147,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      @media(max-width: 340px) {
+        width: 62px;
+        height: 62px;
+      }
     }
   }
 
@@ -120,11 +168,18 @@
     line-height: normal;
     letter-spacing: 1.6px;
     text-transform: uppercase;
+    @media(max-width: 520px) {
+      display: none;
+    }
   }
 
   &__tel {
     position: relative;
     z-index: 6;
+
+    @media(max-width: 900px) {
+      display: none;
+    }
     a {
       font-family: Roboto;
       font-size: 16px;
@@ -222,6 +277,7 @@
   height: rem(18);
   cursor: pointer;
   z-index: 6;
+  transform: rotate(180deg);
   span,
   &::before,
   &::after {
@@ -234,18 +290,18 @@
     background-color: #fff;
   }
   &::before {
-    width: 31px;
+    width: 30px;
     top: 0;
     border-radius: 10px;
   }
   &::after {
     bottom: 0;
-    width: 31px;
+    width: 27px;
     border-radius: 10px;
   }
   span {
     top: calc(50% - rem(1));
-    width: 31px;
+    width: 14px;
     border-radius: 10px;
   }
   &._active {
@@ -260,56 +316,5 @@
       bottom: calc(50% - rem(1));
       transform: rotate(45deg);
     }
-  }
-}
-
-.sidebar {
-  width: 55px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  &__logo {
-    padding-bottom: 162px;
-
-  }
-
-  &__text-wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 142px;
-    position: relative;
-    padding-bottom: 373px;
-
-    &::before {
-      position: absolute;
-      content: '';
-      width: 1px;
-      height: 154px;
-      left: 48%;
-      top: 294px;
-      background: rgba(255, 255, 255, 0.25);
-    }
-  }
-
-  &__text {
-    transform: rotate(-90deg);
-    font-family: Roboto;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 8.34px;
-    text-transform: uppercase;
-  }
-
-  &__links {
-    display: flex;
-    flex-direction: column;
-    gap: 41px;
-    align-items: center;
   }
 }
