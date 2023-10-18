@@ -156,7 +156,8 @@
     line-height: normal;
     text-transform: uppercase;
     padding-bottom: 24px;
-    transition: all 0.2s ease
+    transition: all 0.2s ease;
+    cursor: pointer;
   }
 
   &__price {

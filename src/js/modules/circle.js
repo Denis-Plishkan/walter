@@ -9,21 +9,14 @@ function circle() {
   slider.style.left = radius + "px";
   slider.style.top = "0";
 
-  // Обработчик события "mousedown" для десктопных устройств
   slider.addEventListener("mousedown", startDrag);
-
-  // Обработчик события "touchstart" для мобильных устройств
   slider.addEventListener("touchstart", startDrag);
 
   function startDrag(e) {
     e.preventDefault();
 
-    // Обработчик события "mousemove" для десктопных устройств
     document.addEventListener("mousemove", moveSlider);
-
-    // Обработчик события "touchmove" для мобильных устройств
     document.addEventListener("touchmove", moveSlider);
-
     document.addEventListener("mouseup", stopDrag);
     document.addEventListener("touchend", stopDrag);
   }
