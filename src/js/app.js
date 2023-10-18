@@ -13,7 +13,7 @@ import {
   addTouchClass,
   addLoadedClass,
   menuInit,
-} from './modules'
+} from "./modules";
 /* Раскомментировать для использования */
 // import { MousePRLX } from './libs/parallaxMouse'
 
@@ -24,12 +24,12 @@ import {
 // import Swiper, { Navigation, Pagination } from 'swiper'
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-window['FLS'] = location.hostname === 'localhost'
+window["FLS"] = location.hostname === "localhost";
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
 ! (i) необходимо для корректного отображения webp из css 
 */
-isWebp()
+isWebp();
 /* Добавление класса touch для HTML если браузер мобильный */
 /* Раскомментировать для использования */
 // addTouchClass();
@@ -66,7 +66,9 @@ isWebp()
 // togglePopupWindows()
 // =======================================================================================================
 
-import burger from './modules/burger.js'
+import circle from "./modules/circle.js";
+import burger from "./modules/burger.js";
 import heroSwiper from './modules/swiper.js'
-
-
+import heroThreeDropdown from "./modules/dropdown.js";
+import updateClass from "./modules/circle.js"
+import circleUpdateClasses from "./modules/circle.js"
