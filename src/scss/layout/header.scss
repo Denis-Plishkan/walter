@@ -1,28 +1,60 @@
 // =====================================================================================================================
 .header {
-  min-height: 112px;
+  min-height: 120px;
   display: flex;
   align-items: center;
-
-  @media (max-width: 520px) {
-    min-height: 75px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  @media(max-width: 768px) {
+    min-height: 98px;
+  }
+  @media(max-width: 340px) {
+    min-height: 70px;
   }
 
   // .header__container
   &__container {
-    max-width: 1895px;
+    max-width: 1792px;
     display: flex;
     align-items: center;
     width: 100%;
     padding: 0 10px 0 45px;
+    position: relative;
+    @media(max-width: 768px) {
+      padding: 0 10px;
+    }
+    @media(max-width: 340px) {
+      padding: 0 16px 0 2px;
+    }
+  }
+
+  &__logo {
+    display: none;
+    @media(max-width: 768px) {
+      display: block;
+    }
   }
 
   &__wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-right: 88px;
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
     position: relative;
+    @media(max-width: 1780px) {
+      margin-left: 64px;
+    }
+    @media(max-width: 768px) {
+      margin-left: 0;
+      padding-right: 30px;
+    }
+    @media(max-width: 340px) {
+      padding-right: 14px;
+    }
 
     &::after {
       position: absolute;
@@ -30,22 +62,62 @@
       width: 100%;
       height: 1px;
       background: rgba(255, 255, 255, 0.25);
-      bottom: 0;
+      bottom: -40px;
       left: 0;
+      z-index: 6;
+      @media(max-width: 340px) {
+        bottom: -18px;
+      }
     }
   }
 
   &__wrapper-left {
     display: flex;
+    gap: 126px;
+    @media(max-width: 768px) {
+      gap: 43px;
+      align-items: center;
+    }
+    @media(max-width: 340px) {
+      gap: 18px;
+    }
   }
 
   &__button-wrapper {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 6;
+    gap: 66px;
+  }
+
+  &__button-wrap {
+    @media (min-width: 998px) {
+      &:hover svg circle {
+        fill: rgb(4, 114, 4);
+      }
+    }
   }
 
   &__button-round {
     position: relative;
+
+    svg {
+      @media(max-width: 340px) {
+        height: 30px;
+      }
+    }
+
+    &:hover {
+      animation: shake 0.5s ease;
+
+      &::after {
+        border: 1px solid rgb(10, 69, 10);
+      }
+      &::before {
+        border: 1px solid green;
+      }
+    }
 
     &::after {
       position: absolute;
@@ -58,6 +130,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      @media(max-width: 340px) {
+        width: 45px;
+        height: 45px;
+      }
     }
 
     &::before {
@@ -71,6 +147,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      @media(max-width: 340px) {
+        width: 62px;
+        height: 62px;
+      }
     }
   }
 
@@ -88,9 +168,18 @@
     line-height: normal;
     letter-spacing: 1.6px;
     text-transform: uppercase;
+    @media(max-width: 520px) {
+      display: none;
+    }
   }
 
   &__tel {
+    position: relative;
+    z-index: 6;
+
+    @media(max-width: 900px) {
+      display: none;
+    }
     a {
       font-family: Roboto;
       font-size: 16px;
@@ -98,6 +187,24 @@
       line-height: normal;
       letter-spacing: 1.6px;
     }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
   }
 }
 
@@ -135,23 +242,12 @@
     gap: 42px;
     position: relative;
     align-items: center;
-    &::after {
-      content: "";
-      position: absolute;
-      border: 1px solid #fff;
-      height: 46px;
-      right: 97px;
+  }
 
-      @media (max-width: 1125px) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 769px) {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 100px;
-    }
+  @media (max-width: 769px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
   }
 
   &__item {
@@ -181,6 +277,7 @@
   height: rem(18);
   cursor: pointer;
   z-index: 6;
+  transform: rotate(180deg);
   span,
   &::before,
   &::after {
@@ -193,18 +290,18 @@
     background-color: #fff;
   }
   &::before {
-    width: 31px;
+    width: 30px;
     top: 0;
     border-radius: 10px;
   }
   &::after {
     bottom: 0;
-    width: 31px;
+    width: 27px;
     border-radius: 10px;
   }
   span {
     top: calc(50% - rem(1));
-    width: 31px;
+    width: 14px;
     border-radius: 10px;
   }
   &._active {
