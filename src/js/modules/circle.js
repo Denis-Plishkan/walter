@@ -1,3 +1,4 @@
+
 function circle() {
   const slider = document.querySelector(".slider");
   const circle = document.querySelector(".circle");
@@ -54,7 +55,7 @@ function circle() {
     circleValue = Math.round(percentage);
 
     updateCircle(percentage);
-    circleUpdateState();
+    circleUpdateState(); 
   }
 
   function stopDrag(e) {
@@ -123,20 +124,22 @@ function circleUpdateState() {
       const textContent = text.textContent;
       if (textContent.trim() === "Elite") {
         totalPrice = 3640.625 * circle.textContent;
-        circlePrice.textContent = `${totalPrice
-          .toFixed(0)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} UAH`;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
       } else if (textContent.trim() === "Vip") {
         totalPrice = 5000 * circle.textContent;
-        circlePrice.textContent = `${totalPrice
-          .toFixed(0)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} UAH`;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
       } else if (textContent.trim() === "Extra") {
         totalPrice = 6000 * circle.textContent;
-        circlePrice.textContent = `${totalPrice
-          .toFixed(0)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} UAH`;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
       }
     }
   });
 }
+
+
+
+
+
+
+
+
