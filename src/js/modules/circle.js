@@ -1,3 +1,4 @@
+
 function circle() {
   const slider = document.querySelector(".slider");
   const circle = document.querySelector(".circle");
@@ -5,6 +6,7 @@ function circle() {
   const start = document.querySelector("#start");
   const radius = circle.offsetWidth / 2;
   const steps = 100;
+  let circleValue = 0;
 
   slider.style.left = radius + "px";
   slider.style.top = "0";
@@ -22,19 +24,20 @@ function circle() {
   }
 
   function moveSlider(e) {
-    e.preventDefault();
-
     const mouseX = e.clientX || e.touches[0].clientX;
     const mouseY = e.clientY || e.touches[0].clientY;
 
     const circleRect = circle.getBoundingClientRect();
-    const angle = Math.atan2(mouseY - circleRect.top - radius, mouseX - circleRect.left - radius);
+    const angle = Math.atan2(
+      mouseY - circleRect.top - radius,
+      mouseX - circleRect.left - radius
+    );
     const stepSize = (2 * Math.PI) / steps;
 
     const startAngle = -Math.PI / 2;
 
     let closestStep = Math.round((angle - startAngle) / stepSize);
-    closestStep = (closestStep + steps) % steps; 
+    closestStep = (closestStep + steps) % steps;
 
     const newX = radius * Math.cos(startAngle + closestStep * stepSize);
     const newY = radius * Math.sin(startAngle + closestStep * stepSize);
@@ -49,7 +52,10 @@ function circle() {
       ? start.classList.add("hide")
       : start.classList.remove("hide");
 
+    circleValue = Math.round(percentage);
+
     updateCircle(percentage);
+    circleUpdateState(); 
   }
 
   function stopDrag(e) {
@@ -68,7 +74,7 @@ function circle() {
     circlePath.style.strokeDashoffset = initialOffset;
   }
 
-  updateCircle(0); 
+  updateCircle(0);
 }
 
 circle();
@@ -78,30 +84,62 @@ function updateClass() {
 
   const slider = document.querySelector(".slider");
   slider.addEventListener("mouseover", (e) => {
-    console.log(e);
-    cirlceSlide.classList.add("swiper-no-swiping")
+    cirlceSlide.classList.add("swiper-no-swiping");
   });
   slider.addEventListener("mouseout", (e) => {
-    cirlceSlide.classList.remove("swiper-no-swiping")
+    cirlceSlide.classList.remove("swiper-no-swiping");
   });
 }
 
 updateClass();
 
 function circleUpdateClasses() {
-  const selectors = document.querySelectorAll('#circle-wrapp');
+  const selectors = document.querySelectorAll("#circle-wrapp");
 
   selectors.forEach((selector) => {
-    selector.addEventListener('click', () => {
+    selector.addEventListener("click", () => {
       selectors.forEach((otherSelector) => {
         if (otherSelector !== selector) {
-          otherSelector.classList.remove('active');
+          otherSelector.classList.remove("active");
         }
       });
-      
-      selector.classList.add('active');
-    })
-  })
+
+      selector.classList.add("active");
+      circleUpdateState();
+    });
+  });
 }
 
-circleUpdateClasses()
+circleUpdateClasses();
+
+function circleUpdateState() {
+  const circle = document.querySelector(".value-span");
+  const circlePrice = document.querySelector(".circle__price");
+  let totalPrice = 0;
+
+  const circleWraps = document.querySelectorAll("#circle-wrapp");
+  circleWraps.forEach((circleWrap) => {
+    if (circleWrap.classList.contains("active")) {
+      const text = circleWrap.querySelector(".circle__wrap-text");
+      const textContent = text.textContent;
+      if (textContent.trim() === "Elite") {
+        totalPrice = 3640.625 * circle.textContent;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
+      } else if (textContent.trim() === "Vip") {
+        totalPrice = 5000 * circle.textContent;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
+      } else if (textContent.trim() === "Extra") {
+        totalPrice = 6000 * circle.textContent;
+        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} UAH`;
+      }
+    }
+  });
+}
+
+
+
+
+
+
+
+

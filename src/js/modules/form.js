@@ -1,17 +1,11 @@
-function contactsForm () {
-    const contactsForm = document.querySelectorAll(".contacts__form-group");
+function heroForm () {
+    const buttons = document.querySelectorAll(".hero__form-button");
     
-    contactsForm.forEach((contactForm) => {
-        const input = contactForm.querySelector('input');
-        const span = contactForm.querySelector('span');
-
-        input.addEventListener("focus", () => {
-            span.classList.add('active');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
         })
-        input.addEventListener("blur", () => {
-            span.classList.remove('active');
-        }) 
     })
 }
 
-contactsForm();
+heroForm();

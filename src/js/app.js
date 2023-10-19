@@ -72,3 +72,5 @@ import heroSwiper from './modules/swiper.js'
 import heroThreeDropdown from "./modules/dropdown.js";
 import updateClass from "./modules/circle.js"
 import circleUpdateClasses from "./modules/circle.js"
+import circleUpdateState from "./modules/circle.js"
+import heroForm from "./modules/form.js"
