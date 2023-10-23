@@ -29,7 +29,7 @@
       min-height: 300px;
     }
     @media (max-width: 340px) {
-      min-height: 220px;
+      min-height: 240px;
     }
   }
 
@@ -609,33 +609,7 @@
     }
   }
 
-  &__page-four-title {
-    color: #fff;
-    font-family: Roboto;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 6.6px;
-    max-width: 556px;
-    margin: 0 auto;
-    margin: 161px 0 0 546px;
-    padding-bottom: 44px;
-  }
-
-  // &__page-four-mobile {
-  //   position: relative;
-  //   background: rgba(0, 0, 0, 0.45);
-
-  //   img {
-  //     width: 100%;
-  //     height: 100%;
-  //     object-fit: cover;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     z-index: -1;
-  //   }
-  // }
+  
 }
 
 .three {
