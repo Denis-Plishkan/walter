@@ -1,3 +1,6 @@
+
+let isDragging = false;
+
 function circleMobile() {
   const slider = document.querySelector(".slider-mobile");
   const circle = document.querySelector(".circle-mobile");
@@ -15,11 +18,21 @@ function circleMobile() {
 
   function startDrag(e) {
     e.preventDefault();
-
+    isDragging = true;
     document.addEventListener("mousemove", moveSlider);
     document.addEventListener("touchmove", moveSlider);
     document.addEventListener("mouseup", stopDrag);
     document.addEventListener("touchend", stopDrag);
+  }
+
+  function stopDrag(e) {
+    if (isDragging) {
+      isDragging = false;
+      document.removeEventListener("mousemove", moveSlider);
+      document.removeEventListener("touchmove", moveSlider);
+      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("touchend", stopDrag);
+    }
   }
 
   function moveSlider(e) {
@@ -57,16 +70,17 @@ function circleMobile() {
     circleUpdateStateMobile();
   }
 
-  function stopDrag(e) {
-    document.removeEventListener("mousemove", moveSlider);
-    document.removeEventListener("touchmove", moveSlider);
-    document.removeEventListener("mouseup", stopDrag);
-    document.removeEventListener("touchend", stopDrag);
-  }
-
   function updateCircle(percentage) {
     const circlePath = document.querySelector(".circle-path-mobile");
-    const circumference = 2 * Math.PI * radius;
+    const screenWidth = window.innerWidth;
+    let circumference;
+
+    if (screenWidth < 590) {
+      circumference = 2.6 * Math.PI * radius;
+    } else {
+      circumference = 2 * Math.PI * radius;
+    }
+
     const initialOffset = circumference - circumference * (percentage / -335);
 
     circlePath.style.strokeDasharray = circumference;
