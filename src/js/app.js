@@ -78,3 +78,7 @@ import circleMobile from "./modules/circleMobile.js"
 import updateClassMobile from "./modules/circleMobile.js"
 import circleUpdateClassesMobile from "./modules/circleMobile.js"
 import circleUpdateStateMobile from "./modules/circleMobile.js"
+import lockScaling from "./modules/lockScaling.js"
+
+
+

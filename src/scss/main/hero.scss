@@ -223,9 +223,9 @@
   }
 
   &__swiper-pagination-rounds {
-    position: absolute;
-    right: 124px;
-    top: 349px;
+    position: fixed;
+    top: 43%;
+    right: 6.5%;
     @media (max-width: 862px) {
       display: none;
     }
@@ -267,7 +267,7 @@
   &__page {
     height: 100%;
     padding-top: 120px;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.6);
     @media (max-width: 768px) {
       position: relative;
     }
@@ -416,7 +416,7 @@
       right: 0;
       height: 250px;
       width: 2px;
-      background: #fff;
+      background: linear-gradient(274deg, rgba(255, 255, 255, 0.00) 0%, #FFF 51.56%, rgba(255, 255, 255, 0.00) 100%);;
     }
   }
 }
