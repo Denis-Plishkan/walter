@@ -1,9 +1,11 @@
 
-function circle() {
-  const slider = document.querySelector(".slider");
-  const circle = document.querySelector(".circle");
-  const valueSpan = document.querySelector(".value-span");
-  const start = document.querySelector("#start");
+let isDragging = false;
+
+function circleMobile() {
+  const slider = document.querySelector(".slider-mobile");
+  const circle = document.querySelector(".circle-mobile");
+  const valueSpan = document.querySelector(".value-span-mobile");
+  const start = document.querySelector("#start-mobile");
   const radius = circle.offsetWidth / 2;
   const steps = 100;
   let circleValue = 0;
@@ -16,11 +18,21 @@ function circle() {
 
   function startDrag(e) {
     e.preventDefault();
-
+    isDragging = true;
     document.addEventListener("mousemove", moveSlider);
     document.addEventListener("touchmove", moveSlider);
     document.addEventListener("mouseup", stopDrag);
     document.addEventListener("touchend", stopDrag);
+  }
+
+  function stopDrag(e) {
+    if (isDragging) {
+      isDragging = false;
+      document.removeEventListener("mousemove", moveSlider);
+      document.removeEventListener("touchmove", moveSlider);
+      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("touchend", stopDrag);
+    }
   }
 
   function moveSlider(e) {
@@ -55,19 +67,20 @@ function circle() {
     circleValue = Math.round(percentage);
 
     updateCircle(percentage);
-    circleUpdateState(); 
-  }
-
-  function stopDrag(e) {
-    document.removeEventListener("mousemove", moveSlider);
-    document.removeEventListener("touchmove", moveSlider);
-    document.removeEventListener("mouseup", stopDrag);
-    document.removeEventListener("touchend", stopDrag);
+    circleUpdateStateMobile();
   }
 
   function updateCircle(percentage) {
-    const circlePath = document.querySelector(".circle-path");
-    const circumference = 2 * Math.PI * radius;
+    const circlePath = document.querySelector(".circle-path-mobile");
+    const screenWidth = window.innerWidth;
+    let circumference;
+
+    if (screenWidth < 590) {
+      circumference = 2.6 * Math.PI * radius;
+    } else {
+      circumference = 2 * Math.PI * radius;
+    }
+
     const initialOffset = circumference - circumference * (percentage / -335);
 
     circlePath.style.strokeDasharray = circumference;
@@ -77,9 +90,9 @@ function circle() {
   updateCircle(0);
 }
 
-circle();
+circleMobile();
 
-function updateClass() {
+function updateClassMobile() {
   const cirlceSlide = document.querySelector(".circleSlide");
 
   const slider = document.querySelector(".slider");
@@ -91,10 +104,10 @@ function updateClass() {
   });
 }
 
-updateClass();
+updateClassMobile();
 
-function circleUpdateClasses() {
-  const selectors = document.querySelectorAll(".circle-wrapp");
+function circleUpdateClassesMobile() {
+  const selectors = document.querySelectorAll(".circle__wrapp-mobile");
 
   selectors.forEach((selector) => {
     selector.addEventListener("click", () => {
@@ -105,46 +118,44 @@ function circleUpdateClasses() {
       });
 
       selector.classList.add("active");
-      circleUpdateState();
+      circleUpdateStateMobile();
     });
   });
 }
 
-circleUpdateClasses();
+circleUpdateClassesMobile();
 
-function circleUpdateState() {
-  const circle = document.querySelector(".value-span");
-  const circlePrice = document.querySelector(".circle__price");
+function circleUpdateStateMobile() {
+  const circle = document.querySelector(".value-span-mobile");
+  const circlePrice = document.querySelector(".circle__price-mobile");
   const span = document.createElement("span");
-  span.textContent = 'uah';
+  span.textContent = "uah";
   let totalPrice = 0;
 
-  const circleWraps = document.querySelectorAll(".circle-wrapp");
+  const circleWraps = document.querySelectorAll(".circle__wrapp-mobile");
   circleWraps.forEach((circleWrap) => {
     if (circleWrap.classList.contains("active")) {
-      const text = circleWrap.querySelector(".circle__wrap-text");
+      const text = circleWrap.querySelector(".circle__wrap-text-mobile");
       const textContent = text.textContent;
       if (textContent.trim() === "Elite") {
         totalPrice = 3640.625 * circle.textContent;
-        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`;
-        circlePrice.appendChild(span);
+        circlePrice.textContent = `${totalPrice
+          .toFixed(0)
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} `;
+          circlePrice.appendChild(span);
       } else if (textContent.trim() === "Vip") {
         totalPrice = 5000 * circle.textContent;
-        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`;
-        circlePrice.appendChild(span);
+        circlePrice.textContent = `${totalPrice
+          .toFixed(0)
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
+          circlePrice.appendChild(span);
       } else if (textContent.trim() === "Extra") {
         totalPrice = 6000 * circle.textContent;
-        circlePrice.textContent = `${totalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`;
-        circlePrice.appendChild(span);
+        circlePrice.textContent = `${totalPrice
+          .toFixed(0)
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}`;
+          circlePrice.appendChild(span);
       }
     }
   });
 }
-
-
-
-
-
-
-
-

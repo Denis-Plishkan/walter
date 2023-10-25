@@ -1,0 +1,315 @@
+.hero {
+  &__page-three-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 100%;
+  }
+
+  &__page-three-wrap {
+    background: rgba(0, 0, 0, 0.65);
+    position: relative;
+    transition: all 0.4s ease;
+    min-width: 0;
+    &::after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(
+        274deg,
+        rgba(255, 255, 255, 0) 0%,
+        #fff 51.56%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      top: 0;
+      right: 0;
+    }
+
+    .hero__page-three-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-family: BrunoAceSC;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      @media (max-width: 375px) {
+        font-size: 24px;
+      }
+
+      &.active {
+        top: 28%;
+        color: #ffac30;
+        @media (max-width: 768px) {
+          top: 16%;
+        }
+
+        &::after {
+          opacity: 1;
+          overflow: visible;
+        }
+      }
+
+      &::after {
+        opacity: 0;
+        overflow: hidden;
+        content: "";
+        position: absolute;
+        width: 164px;
+        height: 174px;
+        top: 50%;
+        left: 50%;
+        border: 1px solid #c4c4c4;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+        clip-path: ellipse(60% 100% at 100% 50%);
+        @media (max-width: 768px) {
+          clip-path: ellipse(86% 60% at 50% 100%);
+          width: 170px;
+        }
+        @media (max-width: 375px) {
+          height: 129px;
+          width: 127px;
+        }
+      }
+    }
+
+    .hero__page-three-text {
+      opacity: 0;
+      overflow: hidden;
+      max-width: 480px;
+      color: #fff;
+      font-family: OpenSans;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 30px; /* 166.667% */
+      text-transform: uppercase;
+
+      &.active {
+        padding-bottom: 30px;
+        @media (max-width: 768px) {
+          padding-bottom: 112px;
+        }
+        @media (max-width: 580px) {
+          margin: 0 auto;
+          padding-bottom: 70px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        top: 39%;
+        font-size: 16px;
+        line-height: 24px; /* 150% */
+        max-width: 534px;
+        right: 15%;
+      }
+      @media (max-width: 580px) {
+        font-size: 14px;
+        width: 280px;
+        text-align: center;
+        right: 6%;
+        top: 35%;
+      }
+    }
+
+    .hero__page-three-button {
+      opacity: 0;
+      overflow: hidden;
+
+      @media (max-width: 375px) {
+        svg line {
+          stroke: #ffac30;
+          stroke-opacity: 1;
+        }
+        svg path {
+          stroke: #ffac30;
+          stroke-opacity: 1;
+        }
+      }
+
+      &:hover {
+        svg line {
+          stroke: #ffac30;
+          stroke-opacity: 1;
+        }
+        svg path {
+          stroke: #ffac30;
+          stroke-opacity: 1;
+        }
+      }
+      p {
+        color: #fff;
+        font-family: OpenSans;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 6.3px;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+
+        @media (min-width: 998px) {
+          &:hover {
+            color: #ffac30;
+            font-size: 20px;
+            letter-spacing: 9px;
+          }
+        }
+        @media (max-width: 768px) {
+          color: #ffac30;
+          font-size: 20px;
+          letter-spacing: 9px;
+        }
+        @media (max-width: 550px) {
+          opacity: 0;
+          overflow: hidden;
+        }
+      }
+    }
+
+    @media (min-width: 998px) {
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+        min-width: 980px;
+        cursor: pointer;
+        @media (max-width: 1400px) {
+          min-width: 640px;
+        }
+
+        .hero__page-three-title {
+          color: #ffac30;
+          left: 18%;
+          @media (max-width: 1400px) {
+            left: 14%;
+          }
+
+          &::after {
+            opacity: 1;
+            overflow: visible;
+          }
+        }
+        .hero__page-three-text {
+          opacity: 1;
+          overflow: visible;
+          padding-bottom: 49px;
+        }
+        .hero__page-three-button {
+          opacity: 1;
+          overflow: visible;
+          display: flex;
+          align-items: center;
+          height: 27px;
+        }
+      }
+    }
+
+    img {
+      position: relative;
+      z-index: -1;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      @media (max-width: 768px) {
+        max-height: 192px;
+      }
+      @media (max-width: 550px) {
+        max-height: 160px;
+      }
+
+      &.active {
+        background: rgba(0, 0, 0, 0.5);
+        min-width: 980px;
+        @media (max-width: 1400px) {
+          min-width: 640px;
+        }
+        @media (max-width: 980px) {
+          min-width: 436px;
+        }
+        @media (max-width: 768px) {
+          min-height: 576px;
+        }
+        @media (max-width: 550px) {
+          min-height: 480px;
+        }
+        .hero__page-three-title {
+          color: #ffac30;
+          left: 18%;
+          @media (max-width: 1400px) {
+            left: 14%;
+          }
+
+          &::after {
+            display: block;
+          }
+        }
+        .hero__page-three-text {
+          display: block;
+          padding-bottom: 49px;
+        }
+        .hero__page-three-button {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  &__page-three-imgs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(0, 0, 0, 0.65);
+
+    img {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      z-index: -1;
+      object-fit: cover;
+    }
+  }
+
+  &__page-three-container {
+    bottom: 50%;
+  }
+
+  &__page-three-content {
+    position: absolute;
+    top: 58%;
+    left: 59.5%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 480px;
+    @media (max-width: 1400px) {
+      max-width: 368px;
+    }
+    @media (max-width: 768px) {
+      max-width: 550px;
+      left: 50%;
+      top: 70%;
+    }
+    @media (max-width: 550px) {
+      left: 50%;
+      top: 67%;
+    }
+  }
+}
+
+.three {
+  &__button-top {
+    gap: 31px;
+    padding-bottom: 76px;
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+    @media (max-width: 580px) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__button-bottom {
+    gap: 17px;
+    padding-bottom: 5px;
+  }
+}
