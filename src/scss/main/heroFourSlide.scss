@@ -24,7 +24,11 @@
   }
 
   &__page-four-inner {
-    padding-top: 8.5%;
+    @include adaptiv-value(padding-top, 161, 0, 3);
+    @media(max-width: 1780px) {
+      @include adaptiv-value(padding-top, 60, 0, 3);
+    }
+
   }
 
   &__page-four-mobile {

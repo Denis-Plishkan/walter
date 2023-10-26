@@ -51,7 +51,10 @@
           opacity: 1;
           overflow: visible;
         }
-
+        .tree__button-top {
+          opacity: 1;
+          overflow: visible;
+        }
       }
 
       &::after {
@@ -167,26 +170,25 @@
           letter-spacing: 9px;
         }
         @media (max-width: 550px) {
-          opacity: 0;
-          overflow: hidden;
+          display: none;
         }
       }
     }
 
-    @media (min-width: 998px) {
+    @media (min-width: 768px) {
       &:hover {
         background: rgba(0, 0, 0, 0.5);
         min-width: 980px;
+        @include adaptiv-value(min-width, 980, 100, 3);
         cursor: pointer;
-        @media (max-width: 1400px) {
-          min-width: 640px;
-        }
-
+        
         .hero__page-three-title {
           color: #ffac30;
           left: 18%;
-          @media (max-width: 1400px) {
-            left: 14%;
+
+          @media(max-width: 1600px) {
+            left: 50%;
+            top: 30%;
           }
 
           &::after {
@@ -218,13 +220,8 @@
 
       &.active {
         background: rgba(0, 0, 0, 0.5);
-        min-width: 980px;
-        @media (max-width: 1400px) {
-          min-width: 640px;
-        }
-        @media (max-width: 980px) {
-          min-width: 436px;
-        }
+        max-width: 980px;
+        
         @media (max-width: 768px) {
           min-height: 576px;
         }

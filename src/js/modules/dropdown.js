@@ -28,7 +28,7 @@ function heroThreeDropdown() {
           }
 
           text.style.display = "block";
-          button.style.display = "flex";
+          button.classList.add("active");
           img.classList.add("active");
           title.classList.add("active");
           text.classList.add("active");
@@ -36,11 +36,11 @@ function heroThreeDropdown() {
           activeDropdown = dropdown;
         } else {
           text.style.display = "none";
-          button.style.display = "none";
           img.classList.remove("active");
           title.classList.remove("active");
           text.classList.remove("active");
           activeDropdown = null;
+          button.classList.remove("active");
         }
       });
     }

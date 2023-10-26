@@ -31,7 +31,8 @@
     &__wrapper {
       display: flex;
       flex-direction: column;
-      gap: 304px;
+
+      @include adaptiv-value(gap, 304, 0, 3);
     }
   
     &__text-wrapper {
@@ -46,8 +47,10 @@
         width: 1px;
         height: 154px;
         left: 48%;
-        top: 240px;
         background: rgba(255, 255, 255, 0.25);
+        @include adaptiv-value(top, 240, 150, 3);
+        @include adaptiv-value(height, 154, 0, 3);
+
       }
     }
   
@@ -55,18 +58,19 @@
       transform: rotate(-90deg);
       font-family: Roboto;
       color: rgba(255, 255, 255, 0.5);
-      font-size: 12px;
       font-weight: 500;
       line-height: normal;
       letter-spacing: 8.34px;
       text-transform: uppercase;
+
+      @include adaptiv-font(12, 10, 3)
     }
   
     &__links {
       display: flex;
       flex-direction: column;
-      gap: 41px;
       align-items: center;
+      @include adaptiv-value(gap, 41, 0, 3);
     }
   }
   
