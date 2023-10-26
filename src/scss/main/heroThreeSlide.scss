@@ -51,6 +51,7 @@
           opacity: 1;
           overflow: visible;
         }
+
       }
 
       &::after {
@@ -92,11 +93,14 @@
         padding-bottom: 30px;
         @media (max-width: 768px) {
           padding-bottom: 112px;
+          opacity: 1;
+          overflow: visible;
         }
         @media (max-width: 580px) {
           margin: 0 auto;
           padding-bottom: 70px;
         }
+
       }
 
       @media (max-width: 768px) {
@@ -195,13 +199,7 @@
           overflow: visible;
           padding-bottom: 49px;
         }
-        .hero__page-three-button {
-          opacity: 1;
-          overflow: visible;
-          display: flex;
-          align-items: center;
-          height: 27px;
-        }
+
       }
     }
 
@@ -251,6 +249,9 @@
         .hero__page-three-button {
           display: flex;
           align-items: center;
+          opacity: 1;
+          overflow: visible;
+          height: 27px;
         }
       }
     }
