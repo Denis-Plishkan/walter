@@ -80,7 +80,7 @@ function circle() {
 circle();
 
 function updateClass() {
-  const cirlceSlide = document.querySelector(".circleSlide");
+  const cirlceSlide = document.querySelector(".circle-slide");
 
   const slider = document.querySelector(".slider");
   slider.addEventListener("mouseover", (e) => {

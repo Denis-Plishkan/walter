@@ -179,7 +179,7 @@
       &:hover {
         background: rgba(0, 0, 0, 0.5);
         min-width: 980px;
-        @include adaptiv-value(min-width, 980, 100, 3);
+        @include adaptiv-value(min-width, 980, 200, 3);
         cursor: pointer;
         
         .hero__page-three-title {
@@ -202,6 +202,11 @@
           padding-bottom: 49px;
         }
 
+        .hero__page-three-button {
+          opacity: 1;
+          overflow: visible;
+          display: flex;
+        }
       }
     }
 
@@ -303,6 +308,12 @@
     }
     @media (max-width: 580px) {
       padding-bottom: 0;
+    }
+
+    &.active {
+      opacity: 1;
+      overflow: visible;
+      display: flex;
     }
   }
 

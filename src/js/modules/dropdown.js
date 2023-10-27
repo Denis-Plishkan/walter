@@ -1,4 +1,3 @@
-
 function heroThreeDropdown() {
   const dropdowns = document.querySelectorAll(".hero__page-three-wrap");
   let activeDropdown = null;

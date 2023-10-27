@@ -67,10 +67,12 @@ isWebp();
 // =======================================================================================================
 
 // import circle from "./modules/circle.js";
+import lockScaling from "./modules/lockScaling.js"
 import burger from "./modules/burger.js";
 import heroSwiper from './modules/swiper.js'
 import heroThreeDropdown from "./modules/dropdown.js";
 import updateClass from "./modules/circle.js"
+import updateCircleFiveClass from "./modules/circleFive.js"
 import circleUpdateClasses from "./modules/circle.js"
 import circleUpdateState from "./modules/circle.js"
 import heroForm from "./modules/form.js"
@@ -78,7 +80,7 @@ import circleMobile from "./modules/circleMobile.js"
 import updateClassMobile from "./modules/circleMobile.js"
 import circleUpdateClassesMobile from "./modules/circleMobile.js"
 import circleUpdateStateMobile from "./modules/circleMobile.js"
-import lockScaling from "./modules/lockScaling.js"
+import circleFive from "./modules/circleFive.js"
 
 
 
