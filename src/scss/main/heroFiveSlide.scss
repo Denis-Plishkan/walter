@@ -1,10 +1,30 @@
 .hero {
+
+  &__page-five {
+    @media(max-width: 768px) {
+      padding-top: 0;
+    }
+  }
   &__page-five-wrapper {
-    
   }
 
   &__page-five-inner {
     padding-top: 186px;
+
+    @media (max-width: 1550px) {
+      @include adaptiv-value(padding-top, 150, 10, 3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100% - 100px);
+    }
+  }
+
+  &__page-five-form {
+    align-self: flex-end;
+    @media (max-width: 1550px) {
+      display: none;
+    }
   }
 
   &__page-five-title {
@@ -16,5 +36,17 @@
     text-transform: uppercase;
     max-width: 326px;
     margin-left: 603px;
+
+    @media (max-width: 1550px) {
+      margin-left: 0;
+      max-width: unset;
+      text-align: center;
+      @include adaptiv-value(padding-bottom, 150, 30, 3);
+    }
+    @media (max-width: 550px) {
+     font-size: 14px;
+     letter-spacing: 4.2px;
+     padding-top: 30px;
+    }
   }
 }

@@ -81,6 +81,7 @@ import updateClassMobile from "./modules/circleMobile.js"
 import circleUpdateClassesMobile from "./modules/circleMobile.js"
 import circleUpdateStateMobile from "./modules/circleMobile.js"
 import circleFive from "./modules/circleFive.js"
+import circleFiveMobile from "./modules/circleFiveMobile.js"
 
 
 
